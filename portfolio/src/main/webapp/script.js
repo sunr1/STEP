@@ -23,6 +23,6 @@ function udpateRandomFact() {
   const fact = facts[Math.floor(Math.random() * facts.length)];
 
   // Add it to the page.
-  const factContainer = document.getElementById('funFact-container');
+  const factContainer = document.getElementById('fun-fact-container');
   factContainer.innerText = fact;
 }
