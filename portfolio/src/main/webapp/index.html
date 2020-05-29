@@ -2,22 +2,36 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
-      <h1>Becca's Portfolio</h1>
-      <p>Welcome!</p>
-      <p>I'm a rising junior computer science major at Vanderbilt University</p>
-      <p>Click here to get a random fun fact about me:</p>
-      <button onclick="udpateRandomFact()">Randomize</button>
-      <div id="funFact-container"></div>
-        <div class="image">
-            <p>random pic for now </p>
-            <a href="images/earth.jpg" target = "_blank"><img src="images/earth.jpg"/></a>
+        <div id = "intro">
+            <p>Hi I'm</p>
+            <div id="name">
+                <h2>Rebecca Sun</h2>
+            </div>
+            <p>CS major at Vanderbilt University</p>
         </div>
-    </div>
+
+        <div id="about">
+            <p>About</p>
+        </div>
+      
+      <div id="profiles">
+        <h3>Let's Connect:</h3>
+        <h4>LinkedIn</h4>
+        <img src="https://img.icons8.com/color/48/000000/linkedin.png"/>
+        <h4>Github</h4>
+        <img src="https://img.icons8.com/ios-filled/50/000000/github.png"/>
+      </div>
+      <button onclick="udpateRandomFact()">Randomize</button>
+      <footer id="footer">
+          <a href="https://icons8.com/icon/13930/linkedin">LinkedIn icon by Icons8</a>
+          <a href="https://icons8.com/icon/12599/github">GitHub icon by Icons8</a>
+      </footer>
   </body>
 </html>

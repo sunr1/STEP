@@ -11,18 +11,3 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-/**
- * Adds a random greeting to the page.
- */
-function udpateRandomFact() {
-  const facts =
-      ['I am left handed', 'My favorite food is raspberries!', 'I speak Chinese and am learning Spanish', 'I can solve a Rubik\'s Cube'];
-
-  // Pick a random greeting.
-  const fact = facts[Math.floor(Math.random() * facts.length)];
-
-  // Add it to the page.
-  const factContainer = document.getElementById('funFact-container');
-  factContainer.innerText = fact;
-}
