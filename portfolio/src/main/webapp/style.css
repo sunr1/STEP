@@ -1,9 +1,29 @@
 #content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+  font: 'Roboto', sans-serif;
+  text-align: center;
 }
 
-#greeting-container {
-  margin-top: 20px;
+#name {
+    font: bold 40px 'Inconsolata', monospace;
+}
+
+#about {
+    letter-spacing: 0.5px;
+}
+
+#intro {
+    background: rgb(113, 147, 209);
+    color: white;
+    font: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+#about {
+    padding: 15px 0 0;
+}
+
+#profiles {
+    font: 20px/10px;
+    padding: 20px 0 0;
 }
