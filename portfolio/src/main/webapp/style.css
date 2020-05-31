@@ -1,26 +1,70 @@
 #content {
-  font: 'Roboto', sans-serif;
+  font: 22px 'Manrope', sans-serif;
+
+  padding: 220px;
   text-align: center;
 }
 
 #intro {
-    background: rgb(113, 147, 209);
-    color: white;
-    font: 20px;
-    padding: 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#headshot {
+    border-radius: 100%;
+    padding: 30px;
+    width: 200px;
 }
 
 #name {
-    font: bold 40px 'Inconsolata', monospace;
+    font: bold 80px 'Gochi Hand', cursive;
 }
 
 #about {
-    letter-spacing: 0.5px;
-    padding: 15px 0 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 100px;
+    text-align: left;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 100px;
+    text-align: left;
+}
+
+#categories {
+    color: rgb(235, 214, 28);
+    letter-spacing: 5px;
+    text-align: center;
 }
 
 #profiles {
-    font: 20px/10px;
-    padding: 20px 0 0;
+    bottom: 30px;
+    float: right;
+    position: sticky;
+    right: 70px;
+    width: 65px;
+}
+
+footer {
+    background: rgb(255, 251, 219);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#credits {
+    font: 15px black;
+    text-align: left;
+}
+
+#contact {
+    font: 25px black;
+    padding: 40px;
+    text-align: center;
 }
