@@ -3,30 +3,61 @@
   <head>
     <meta charset="UTF-8">
     <title>Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Manrope&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="content">
-        <div id = "intro">
-            <p>Hi I'm</p>
-                <h2 id="name"> Rebecca Sun</h2>
-            <p>CS major at Vanderbilt University</p>
-        </div>
+        <header id="intro">
+            <h3>Hi I'm</h3>
+            <h2 id="name"> Rebecca Sun</h2>
+        </header>
+
+        <h4 class="category">-ABOUT-</h4>
         <div id="about">
-            <p>About</p>
-            
-            <p>Currently, I am a <a href="https://buildyourfuture.withgoogle.com/programs/step/">STEP</a> intern at Google</p>
+            <img id="headshot" src="images/me.jpg"></img>
+            <p>Currently, I am a <a href="https://buildyourfuture.withgoogle.com/programs/step/">STEP</a> intern at Google. 
+            I am a rising junior at Vanderbilt University majoring in computer science with a minor in engineering management. 
+            This summer, I'm working out of Kansas City, Kansas where I'm from.</p>
         </div>
-        <div id="profiles">
-            <h3>Let's Connect:</h3>
-            <a href="https://github.com/sunr1">
-                <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="images/linkedin.png"/>
-            </a>
-            <a href="https://linkedin.com/in/rebecca-sun/">
-                <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="images/github.png"/>
-            </a>
-        </div>
-    </div>    
+
+        <h4 class="category">-EXPERIENCE-</h4>
+        <ul class="info-list">
+            <li>Summer 2019: Software Engineer Intern at Atonix Digital</li>
+            <li>Summer 2019: Google CSSI-Coursera TA</li>
+            <li>December 2019-Present: Vanderbilt Women in Computing (ACM-W Chapter) President</li>
+        </ul>
+        <h4 class="category">-SKILLS & TECHNICAL LANGUAGES-</h4>
+        <ul class="info-list"> 
+            <li>C++</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>HTML, CSS, JavaScript</li>
+        </ul>
+        <h4 class="category">-PROJECTS-</h4>
+        <ul class="info-list"> 
+            <li>VandyHacks submission: TA Office Hours Scheduler Chrome Extension</li>
+            <li>MIT Women's Technology Program Final Project: Tetris program written in Python</li>
+        </ul>
+        <h4 class="category">-INTERESTS & HOBBIES-</h4>
+        <ul class="info-list"> 
+            <li>Hiking</li>
+            <li>Skiing</li>
+            <li>Cooking and baking</li>
+            <li>Fun fact: I fenced competitively for 7 years</li>
+        </ul>
+    </div>
+
+    <div id="profiles">
+        <a href="https://github.com/sunr1" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="images/linkedin.png"/></a>
+        <a href="https://linkedin.com/in/rebecca-sun/" target="_blank"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="images/github.png"/></a>
+        <a href="mailto:rebeccasun@google.com" target="_blank"><img src="https://img.icons8.com/fluent/48/000000/gmail.png" alt="images/gmail.png"/></a>
+    </div>
+
+    <footer>
+        <p id="contact">Get in touch: <a href="mailto:rebeccasun@google.com" target="_blank"> rebeccasun@google.com</a></p>
+        <p id="credits">Created and designed by Rebecca Sun</p>
+    </footer>
   </body>
+
 </html>
