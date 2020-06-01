@@ -29,7 +29,7 @@
     text-align: left;
 }
 
-#info {
+.info-list {
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -37,7 +37,7 @@
     text-align: left;
 }
 
-#categories {
+.category {
     color: rgb(235, 214, 28);
     letter-spacing: 5px;
     text-align: center;
