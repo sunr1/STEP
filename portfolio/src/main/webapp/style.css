@@ -1,6 +1,6 @@
 #content {
   font: 22px 'Manrope', sans-serif;
-
+  line-height: 2;
   padding: 220px;
   text-align: center;
 }
@@ -22,6 +22,7 @@
 }
 
 #about {
+    align-items: center;
     display: flex;
     flex-direction: row;
     list-style: none;
@@ -40,6 +41,7 @@
 .category {
     color: rgb(235, 214, 28);
     letter-spacing: 5px;
+    padding: 50px;
     text-align: center;
 }
 
@@ -47,7 +49,7 @@
     bottom: 30px;
     float: right;
     position: sticky;
-    right: 70px;
+    right: 40px;
     width: 65px;
 }
 
@@ -67,4 +69,38 @@ footer {
     font: 25px black;
     padding: 40px;
     text-align: center;
+}
+
+#scroll-button {
+    border: none;
+    border-radius: 5px; 
+    top: 20px;
+    position: fixed;
+    right: 40px;
+}
+
+#scroll-button:hover {
+    background-color: gray;
+}
+
+#hobbies {
+    align-items: center;
+    display: flex;
+    margin: auto;
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    white-space: nowrap;
+    width: 20px;
+}
+
+#hobbies:hover {
+    transform: scale(1.2);
+}
+
+#languages {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    white-space: nowrap;
+    width: 20px;
 }
