@@ -90,7 +90,6 @@ footer {
     padding: 10px 20px;
     transition: transform 0.2s;
     white-space: nowrap;
-    width: 20px;
 }
 
 #hobbies:hover {
@@ -100,7 +99,7 @@ footer {
 #languages {
     align-items: center;
     display: flex;
-    list-style: none;
-    white-space: nowrap;
-    width: 20px;
+    flex-flow: row wrap;
+    margin: auto;
+    width: 20%;
 }
