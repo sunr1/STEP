@@ -24,9 +24,40 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
+
+  private List<String> messages;
+
+  @Override
+  public void init() {
+    messages = new ArrayList<>();
+    messages.add("Spongebob");
+    messages.add("Gary");
+    messages.add("Mr. Krabs");
+  }
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String message = messages.get((int) (Math.random() * messages.size()));
+
     response.setContentType("text/html;");
-    response.getWriter().println("Hello Becca!");
+    response.getWriter().println(message);
+
+    // Convert the server stats to JSON
+    Output output = new Output();
+    String json = convertToJson(output);
+
+    // Send the JSON as the response
+    response.setContentType("application/json;");
+    response.getWriter().println(json);
+  }
+
+  /**
+   * Converts a ServerStats instance into a JSON string using the Gson library. Note: We first added
+   * the Gson library dependency to pom.xml.
+   */
+  private String convertToJsonUsingGson(Output output) {
+    Gson gson = new Gson();
+    String json = gson.toJson(output);
+    return json;
   }
 }
