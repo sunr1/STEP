@@ -64,6 +64,18 @@ footer {
     width: 100%;
 }
 
+=======
+    right: 70px;
+    width: 65px;
+}
+
+footer {
+    background: rgb(255, 251, 219);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 #credits {
     font: 15px black;
     text-align: left;
