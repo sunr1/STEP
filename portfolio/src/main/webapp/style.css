@@ -106,3 +106,9 @@ footer {
     margin: auto;
     transform: scale(.6);
 }
+
+#comments {
+    display: inline-block;
+    list-style: none;
+    text-align: left;
+}

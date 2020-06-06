@@ -7,17 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="printComments()">
     <div id="content">
         <header id="intro">
             <h3>Hi I'm</h3>
             <h2 id="name"> Rebecca Sun</h2>
         </header>
-
-        <div id="message-container">
-            <p>Click for Message:</p>
-            <button onclick="getMessage()">Get Message</button>
-        </div> 
 
         <h4 class="category">-ABOUT-</h4>
         <div id="about">
@@ -60,6 +55,20 @@
             <img src="https://img.icons8.com/pastel-glyph/64/000000/fencing-swords.png" alt="Black and white fencing sword logo"/>
         </ul>
     </div>
+
+    <form id="comments" action="/comments" method="POST">
+
+      <p>Leave a Comment:</p>
+      <label>Limit number of comments: (between 1 and 10):</label>
+      <br/><br/>
+      <input type="number" id="limit" name="limit" min="1" max="10" value="5"><input type="submit">
+      <br/><br/>
+      <label>Type your comment here:</label>
+      <br/><br/>
+      <input type="text" name="text-input"></input>
+      <br/><br/>
+      <input type="submit"/>
+    </form>
 
     <div id="profiles">
         <a href="https://github.com/sunr1" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="LinkedIn Logo"/></a>
