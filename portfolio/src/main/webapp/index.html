@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="printComments()" onchange="printComments()">
     <div id="content">
         <header id="intro">
-            <h3>Hi I'm</h3>
+            <h3>Hello everyone, my name is</h3>
             <h2 id="name"> Rebecca Sun</h2>
         </header>
 
@@ -47,16 +47,43 @@
         </ul>
         <h4 class="category">-INTERESTS & HOBBIES-</h4>
         <ul id="hobbies"> 
-            <img src="https://img.icons8.com/ios-filled/90/000000/mountain.png" alt="Black and white mountain logo"/>
-            <img src="https://img.icons8.com/ios/100/000000/drawing--v2.png" alt="Black and white pencil and paintbrush logo"/>
-            <img src="https://img.icons8.com/ios/100/000000/add-song.png" alt="Black and white music note"/>
-            <img src="https://img.icons8.com/ios/100/000000/ski-simulator.png"/>
-            <img src="https://img.icons8.com/ios-filled/100/000000/salt-bae.png" alt="Black and white salt bae logo"/>
-            <img src="https://img.icons8.com/pastel-glyph/64/000000/fencing-swords.png" alt="Black and white fencing sword logo"/>
+            <img src="https://img.icons8.com/ios-filled/90/000000/mountain.png" alt="Black and white mountain logo" class="hobbies-sep"/>
+            <img src="https://img.icons8.com/ios/100/000000/drawing--v2.png" alt="Black and white pencil and paintbrush logo" class="hobbies-sep"/>
+            <img src="https://img.icons8.com/ios/100/000000/add-song.png" alt="Black and white music note" class="hobbies-sep"/>
+            <img src="https://img.icons8.com/ios/100/000000/ski-simulator.png"alt="Black and white skier" class="hobbies-sep"/>
+            <img src="https://img.icons8.com/ios-filled/100/000000/salt-bae.png" alt="Black and white salt bae logo" class="hobbies-sep"/>
+            <img src="https://img.icons8.com/pastel-glyph/64/000000/fencing-swords.png" alt="Black and white fencing sword logo" class="hobbies-sep"/>
+            <img src="https://img.icons8.com/ios-glyphs/100/000000/bouncing-ball.png" alt="Black and white bouncing ball" class="hobbies-sep"/>
         </ul>
     </div>
 
+    <form class="comments" action="/comments" method="POST">
+
+      <p>Leave a Comment:</p>
+      <label>Limit number of comments: (between 1 and 10):</label>
+      <br/><br/>
+      <input type="number" id="comment-limit" name="comment-limit" min="1" max="10" value="5"></input>
+      <br/><br/>
+      <label>Type your name:</label>
+      <br/><br/>
+      <input type="text" name="name-input" value placeholder="name"></input>
+      <br/><br/>
+      <label>Type your comment:</label>
+      <br/><br/>
+      <input type="text" name="text-input" value placeholder="questions, comments, etc"></input>
+      <br/><br/>
+      <input type="submit"/>
+    </form>
+
+    <div id="allComments" class="comments"></div>
+
     <div id="profiles">
+        <a href="https://github.com/sunr1" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="LinkedIn Logo" class="profiles-separate"/></a>
+        <a href="https://linkedin.com/in/rebecca-sun/" target="_blank"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="Github Logo" class="profiles-separate"/></a>
+        <a href="mailto:rebeccasun@google.com" target="_blank"><img src="https://img.icons8.com/fluent/48/000000/gmail.png" alt="Gmail Logo" class="profiles-separate"/></a>
+    </div>
+
+    <div>
         <button onclick="scrollUp()" id="scroll-button"><img src="images/up.png" alt="up arrow"></img></button>
 
         <a href="https://github.com/sunr1" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="images/linkedin.png"/></a>
