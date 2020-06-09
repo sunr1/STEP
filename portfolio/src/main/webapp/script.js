@@ -3,9 +3,9 @@ function scrollUp() {
 }
 
 async function printComments() {
-  let limit = document.getElementById('limit').value;
+  let commentLimit = document.getElementById('comment-limit').value;
 
-  fetch('/comments?limit=' + limit)
+  fetch('/comments?comment-limit=' + commentLimit)
       .then(response => response.json())
       .then((data) => {
         let allComments = document.getElementById('allComments');
@@ -20,32 +20,17 @@ async function printComments() {
       });
 }
 
-
 function createCommentElement(comment) {
   const allComments = document.getElementById('allComments');
   const commentDiv = document.createElement('div');
 
-  // name
-  const nameElement = document.createElement('p');
-  let nameTextNode = document.createTextNode(comment.name + ' left a comment:');
-  nameElement.appendChild(nameTextNode);
-  commentDiv.appendChild(nameElement);
-
-  // comment
-  const commentElement = document.createElement('p');
-  let commentTextNode = document.createTextNode(comment.text);
-  commentElement.appendChild(commentTextNode);
-  commentDiv.appendChild(commentElement);
-
-  // time
-  const timeEl = document.createElement('p');
-  let timeTextNode = document.createTextNode('at ' + comment.timestamp);
-  timeEl.appendChild(timeTextNode);
-  commentDiv.appendChild(timeEl);
+  appendCommentElement(comment.name + ' left a comment:', commentDiv);
+  appendCommentElement(comment.text, commentDiv);
+  appendCommentElement('at ' + comment.timestamp, commentDiv);
 
   // delete button implementation
   const deleteButtonElement = document.createElement('button');
-  let deleteTextNode = document.createTextNode('x');
+  const deleteTextNode = document.createTextNode('x');
   deleteButtonElement.appendChild(deleteTextNode);
   deleteButtonElement.addEventListener('click', () => {
     deleteComments(comment);
@@ -60,4 +45,11 @@ function deleteComments(comment) {
   const params = new URLSearchParams();
   params.append('id', comment.id);
   fetch('/delete-comment', {method: 'POST', body: params});
+}
+
+function appendCommentElement(txt, commentDiv) {
+  const el = document.createElement('p');
+  let textNode = document.createTextNode(txt);
+  el.appendChild(textNode);
+  commentDiv.appendChild(el);
 }
