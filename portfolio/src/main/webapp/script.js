@@ -14,9 +14,7 @@ async function printComments() {
           allComments.removeChild(allComments.lastChild)
         }
 
-        data.forEach((comment) => {
-          createCommentElement(comment);
-        });
+        data.forEach(comment => createCommentElement(comment));
       });
 }
 
@@ -49,7 +47,6 @@ function deleteComments(comment) {
 
 function appendCommentElement(txt, commentDiv) {
   const el = document.createElement('p');
-  let textNode = document.createTextNode(txt);
-  el.appendChild(textNode);
+  el.appendChild(document.createTextNode(txt));
   commentDiv.appendChild(el);
 }

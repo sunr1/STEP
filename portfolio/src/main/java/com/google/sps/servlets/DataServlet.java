@@ -42,11 +42,12 @@ public class DataServlet extends HttpServlet {
   private static final String NAME = "name";
   private static final String TEXT = "text";
   private static final String TIMESTAMP = "timestamp";
+  private static final String COMMENT = "comment";
   private static final DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Query query = new Query("Comment").addSort(TIMESTAMP, SortDirection.ASCENDING);
+    Query query = new Query(COMMENT).addSort(TIMESTAMP, SortDirection.ASCENDING);
     PreparedQuery results = datastore.prepare(query);
 
     int numLimit = Integer.parseInt(request.getParameter("comment-limit"));
@@ -66,7 +67,7 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Entity commentEntity = new Entity("Comment");
+    Entity commentEntity = new Entity(COMMENT);
     commentEntity.setProperty(NAME, request.getParameter("name-input"));
     commentEntity.setProperty(TEXT, request.getParameter("text-input"));
 
