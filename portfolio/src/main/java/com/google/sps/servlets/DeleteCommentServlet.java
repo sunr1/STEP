@@ -18,6 +18,6 @@ public class DeleteCommentServlet extends HttpServlet {
     long id = Long.parseLong(request.getParameter("id"));
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.delete(KeyFactory.createKey("Comment", id);
+    datastore.delete(KeyFactory.createKey("Comment", id));
   }
 }
