@@ -42,7 +42,7 @@ public class DataServlet extends HttpServlet {
   private static final String NAME = "name";
   private static final String TEXT = "text";
   private static final String TIMESTAMP = "timestamp";
-  private static final String COMMENT = "comment";
+  private static final String COMMENT = "Comment";
   private static final DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
   @Override

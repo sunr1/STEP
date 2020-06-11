@@ -62,17 +62,6 @@ footer {
     width: 100%;
 }
 
-    right: 70px;
-    width: 65px;
-}
-
-footer {
-    background: rgb(255, 251, 219);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
 #credits {
     font: 15px black;
     text-align: left;
@@ -121,3 +110,17 @@ footer {
     list-style: none;
     text-align: center;
 }
+
+#map {
+  border: thin solid black;
+  display: inline-block;
+  height: 400px;
+  width: 500px;
+}
+
+#chart {
+    border: thin solid black;
+    height: 100%;
+    width:100%;
+}
+
