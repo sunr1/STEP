@@ -114,8 +114,8 @@ footer {
 #map {
   border: thin solid black;
   display: inline-block;
-  height: 400px;
-  width: 500px;
+  height: 500px;
+  width: 800px;
 }
 
 #chart {
@@ -123,4 +123,3 @@ footer {
     height: 100%;
     width:100%;
 }
-
