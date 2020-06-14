@@ -1,4 +1,6 @@
-
+/**
+ * Creates a map and applies styling and markers to it.
+ */
 function createMap() {
   const map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 39, lng: -94},
