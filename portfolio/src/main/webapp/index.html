@@ -22,10 +22,8 @@
             <img id="headshot" src="images/me.jpg" alt="picture of me"></img>
             <p>Currently, I am a <a href="https://buildyourfuture.withgoogle.com/programs/step/">STEP</a> intern at Google. 
             I am a rising junior at Vanderbilt University majoring in computer science with a minor in engineering management. 
-            This summer, I'm working out of Kansas City, Kansas where I'm from. Click on the interactive red markers on the map below to get more information on where I have lived:</p>
+            This summer, I'm working out of Kansas City, Kansas where I'm from.</p>
         </div>
-
-        <div id="map"></div>
         
         <h4 class="category">-EXPERIENCE-</h4>
         <ul class="info-list">
@@ -52,14 +50,25 @@
         </ul>
         <h4 class="category">-INTERESTS & HOBBIES-</h4>
         <ul id="hobbies"> 
-            <img src="https://img.icons8.com/ios-filled/90/000000/mountain.png" alt="Black and white mountain logo" class="hobbies-sep"/>
-            <img src="https://img.icons8.com/ios/100/000000/drawing--v2.png" alt="Black and white pencil and paintbrush logo" class="hobbies-sep"/>
-            <img src="https://img.icons8.com/ios/100/000000/add-song.png" alt="Black and white music note" class="hobbies-sep"/>
-            <img src="https://img.icons8.com/ios/100/000000/ski-simulator.png"alt="Black and white skier" class="hobbies-sep"/>
-            <img src="https://img.icons8.com/ios-filled/100/000000/salt-bae.png" alt="Black and white salt bae logo" class="hobbies-sep"/>
-            <img src="https://img.icons8.com/pastel-glyph/64/000000/fencing-swords.png" alt="Black and white fencing sword logo" class="hobbies-sep"/>
-            <img src="https://img.icons8.com/ios-glyphs/100/000000/bouncing-ball.png" alt="Black and white bouncing ball" class="hobbies-sep"/>
+            <button class="hobbies-sep" onclick="showPopup(this)" id="1" title="Sports and Fitness"><img src="https://img.icons8.com/ios-filled/90/000000/mountain.png" alt="Black and white mountain logo"></img></button>
+            <button class="hobbies-sep" onclick="showPopup(this)" id="2" title="Art and Drawing"><img src="https://img.icons8.com/ios/100/000000/drawing--v2.png" alt="Black and white pencil and paintbrush logo"></img></button>
+            <button class="hobbies-sep" onclick="showPopup(this)" id="3" title="Music and Concerts"><img src="https://img.icons8.com/ios/100/000000/add-song.png" alt="Black and white music note"></img></button>
+            <button class="hobbies-sep" onclick="showPopup(this)" id="4" title="Skiing"><img src="https://img.icons8.com/ios/100/000000/ski-simulator.png"alt="Black and white skier"></img></button>
+            <button class="hobbies-sep" onclick="showPopup(this)" id="5" title="Cooking and Baking"><img src="https://img.icons8.com/ios-filled/100/000000/salt-bae.png" alt="Black and white salt bae logo" ></img></button>
+            <button class="hobbies-sep" onclick="showPopup(this)" id="6" title="Traveling"><img src="https://img.icons8.com/ios/100/000000/airport.png"/></img></button>
         </ul>
+        <h5>Click on the icons above for more information</h5>
+
+        <div id="my-popup" class="popup">
+            <img id="picture"></img>
+            <div id="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+            </div>
+        </div>
+
+        <p>The interactive map shows some of the places these pictures were taken. </p>
+        <div id="map"></div>
+
     </div>
 
     <form class="comments" action="/comments" method="POST">
