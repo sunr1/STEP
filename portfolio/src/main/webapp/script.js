@@ -50,7 +50,7 @@ function showPopup(button) {
     case '6':
       appendElement('h3', 'Traveling', content);
       document.getElementById('picture').src = 'images/vegas.jpg';
-      appendElement('p', 'I took this picture in Las Vegas.', content);
+      appendElement('p', 'I took this picture while visiting Las Vegas.', content);
       break;
   }
   modal.style.display = 'block';
