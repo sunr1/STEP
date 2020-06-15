@@ -6,8 +6,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Manrope&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcRyGkX8idkCF67BHQETuVDBRq0Fbf3pY"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js"></script>
   </head>
-  <body onload="printComments()" onchange="printComments()">
+  <body onload="printComments()" onchange="printComments()" onload="createMap()">
     <div id="content">
         <header id="intro">
             <h3>Hello everyone, my name is</h3>
@@ -19,9 +22,11 @@
             <img id="headshot" src="images/me.jpg" alt="picture of me"></img>
             <p>Currently, I am a <a href="https://buildyourfuture.withgoogle.com/programs/step/">STEP</a> intern at Google. 
             I am a rising junior at Vanderbilt University majoring in computer science with a minor in engineering management. 
-            This summer, I'm working out of Kansas City, Kansas where I'm from.</p>
+            This summer, I'm working out of Kansas City, Kansas where I'm from. Click on the interactive red markers on the map below to get more information on where I have lived:</p>
         </div>
 
+        <div id="map"></div>
+        
         <h4 class="category">-EXPERIENCE-</h4>
         <ul class="info-list">
             <li>Summer 2019: Software Engineer Intern at Atonix Digital</li>
@@ -58,7 +63,6 @@
     </div>
 
     <form class="comments" action="/comments" method="POST">
-
       <p>Leave a Comment:</p>
       <label>Limit number of comments: (between 1 and 10):</label>
       <br/><br/>
@@ -72,7 +76,7 @@
       <br/><br/>
       <input type="text" name="text-input" value placeholder="questions, comments, etc"></input>
       <br/><br/>
-      <input type="submit"/>
+      <input type="submit" onclick="confetti()"/>
     </form>
 
     <div id="allComments" class="comments"></div>
@@ -85,15 +89,12 @@
 
     <div>
         <button onclick="scrollUp()" id="scroll-button"><img src="images/up.png" alt="up arrow"></img></button>
-
-        <a href="https://github.com/sunr1" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="images/linkedin.png"/></a>
-        <a href="https://linkedin.com/in/rebecca-sun/" target="_blank"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="images/github.png"/></a>
-        <a href="mailto:rebeccasun@google.com" target="_blank"><img src="https://img.icons8.com/fluent/48/000000/gmail.png" alt="images/gmail.png"/></a>
     </div>
 
     <footer>
         <p id="contact">Get in touch: <a href="mailto:rebeccasun@google.com" target="_blank"> rebeccasun@google.com</a></p>
         <p id="credits">Created and designed by Rebecca Sun</p>
+        <button onclick="confetti()">confetti</button>
     </footer>
   </body>
 
