@@ -3,58 +3,53 @@
 function showPopup(button) {
   const modal = document.getElementById('my-popup');
   const content = document.getElementById('popup-content');
+  let imagePath;
+  let headerText;
+  let captionText;
 
   removeLastChild(content);
 
   switch (button.id) {
     case '1':
-      document.getElementById('picture').src = 'images/pickleball.jpg';
-      appendElement('h3', 'Sports and Fitness', content);
-      appendElement(
-          'p',
-          'I love doing yoga, hiking, and have recently started playing pickleball. Fun fact: I fenced competitively for 7 years',
-          content);
+      imagePath = 'images/pickleball.jpg';
+      headerText = 'Sports and Fitness';
+      captionText =
+          'I love doing yoga, hiking, and have recently started playing pickleball. Fun fact: I fenced competitively for 7 years';
       break;
     case '2':
-      document.getElementById('picture').src = 'images/nelson.jpg';
-      appendElement('h3', 'Art and Drawing', content);
-      appendElement(
-          'p',
-          'I enjoy visiting art museums and drawing in my free time. Right now, I like drawing realistic portrait style pencil portraits. One of my favorite museums is The Nelson-Atkins Museum of Art here in Kansas City.',
-          content);
+      imagePath = 'images/nelson.jpg';
+      headerText = 'Art and Drawing';
+      captionText =
+          'I enjoy visiting art museums and drawing in my free time. Right now, I like drawing realistic portrait style pencil portraits. One of my favorite museums is The Nelson-Atkins Museum of Art here in Kansas City.';
       break;
-
     case '3':
-      document.getElementById('picture').src = 'images/summersalt.jpg';
-      appendElement('h3', 'Music and Concerts', content);
-      appendElement(
-          'p',
-          'This image is from the last concert I went to at a small venue called EXIT/IN in Nashville. I love finding new songs and artists to add to my Spotify playlists.',
-          content);
+      imagePath = 'images/summersalt.jpg';
+      headerText = 'Music and Concerts';
+      captionText =
+          'This image is from the last concert I went to at a small venue called EXIT/IN in Nashville. I love finding new songs and artists to add to my Spotify playlists.';
       break;
     case '4':
-      document.getElementById('picture').src = 'images/ski.jpg';
-      appendElement('h3', 'Skiing', content);
-      appendElement(
-          'p', 'This picture was taken in Keystone, Colorado.', content);
+      imagePath = 'images/ski.jpg';
+      headerText = 'Skiing';
+      captionText = 'This picture was taken in Keystone, Colorado.';
       break;
     case '5':
-      appendElement('h3', 'Cooking and Baking', content);
-      document.getElementById('picture').src = 'images/baking.jpg';
-      appendElement(
-          'p',
-          'This is one of my favorite recipes and one that I baked recently, chocolate chip banana bread!',
-          content);
+      imagePath = 'images/baking.jpg';
+      headerText = 'Cooking and Baking';
+      captionText =
+          'This is one of my favorite recipes and one that I baked recently, chocolate chip banana bread!';
       break;
     case '6':
-      appendElement('h3', 'Traveling', content);
-      document.getElementById('picture').src = 'images/vegas.jpg';
-      appendElement(
-          'p',
-          'I took this picture while visiting Las Vegas during the holidays.',
-          content);
+      imagePath = 'images/vegas.jpg';
+      headerText = 'Traveling';
+      captionText =
+          'I took this picture while visiting Las Vegas during the holidays.';
       break;
   }
+  document.getElementById('popup-picture').src = imagePath;
+  appendElement('h3', headerText, content);
+  appendElement('p', captionText, content);
+
   modal.style.display = 'block';
 }
 
@@ -67,11 +62,13 @@ window.onclick =
   }
 }
 
-function scrollUp() {
+function
+scrollUp() {
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-async function printComments() {
+async function
+printComments() {
   let commentLimit = document.getElementById('comment-limit').value;
 
   fetch('/comments?comment-limit=' + commentLimit)
@@ -103,7 +100,6 @@ function createCommentElement(comment) {
     commentDiv.remove();
   });
   commentDiv.appendChild(deleteButtonElement);
-
   allComments.appendChild(commentDiv);
 }
 
@@ -113,14 +109,14 @@ function deleteComments(comment) {
   fetch('/delete-comment', {method: 'POST', body: params});
 }
 
-function appendElement(type, txt, commentDiv) {
-  const el = document.createElement('p');
+function appendElement(type, txt, divAppend) {
+  const el = document.createElement(type);
   el.appendChild(document.createTextNode(txt));
-  commentDiv.appendChild(el);
+  divAppend.appendChild(el);
 }
 
 /**
- *Removes all child elements of a DOM node to prevent text from showing more
+ * Removes all child elements of a DOM node to prevent text from showing more
  * than once on UI.
  */
 function removeLastChild(div) {
