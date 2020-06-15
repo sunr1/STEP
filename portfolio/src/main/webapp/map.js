@@ -112,9 +112,9 @@ function createMap() {
   const nashString = '<h4>Nashville, Tennessee</h4>' +
       '<p>Where I am currently attending college</p>';
 
-  var kcInfoWindow = new google.maps.InfoWindow({content: kcString});
-  var culvInfoWindow = new google.maps.InfoWindow({content: culvString});
-  var nashInfoWindow = new google.maps.InfoWindow({content: nashString});
+  const kcInfoWindow = new google.maps.InfoWindow({content: kcString});
+  const culvInfoWindow = new google.maps.InfoWindow({content: culvString});
+  const nashInfoWindow = new google.maps.InfoWindow({content: nashString});
 
   setMarker(kcMarker, kcInfoWindow);
   setMarker(culvMarker, culvInfoWindow);
