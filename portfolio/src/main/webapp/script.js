@@ -3,8 +3,10 @@ function scrollUp() {
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-/**Fetches limit for number of comments shown on page and then adds the
- * appropriate amount of comments to the UI.*/
+/**
+ *Fetches limit for number of comments shown on page and then adds the
+ * appropriate amount of comments to the UI.
+ */
 async function printComments() {
   let commentLimit = document.getElementById('comment-limit').value;
 
