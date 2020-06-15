@@ -67,13 +67,11 @@ window.onclick =
   }
 }
 
-function
-scrollUp() {
+function scrollUp() {
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-async function
-printComments() {
+async function printComments() {
   let commentLimit = document.getElementById('comment-limit').value;
 
   fetch('/comments?comment-limit=' + commentLimit)
