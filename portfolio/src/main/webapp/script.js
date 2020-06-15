@@ -1,4 +1,4 @@
-/** Scrolls to the top of the page when the button is clicked.*/
+/** Scrolls to the top of the page when the button is clicked. */
 function scrollUp() {
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
@@ -56,7 +56,7 @@ function deleteComments(comment) {
   fetch('/delete-comment', {method: 'POST', body: params});
 }
 
-/** Creates paragraph element for a comment and adds it to the UI.*/
+/** Creates paragraph element for a comment and adds it to the UI. */
 function appendCommentElement(txt, commentDiv) {
   const el = document.createElement('p');
   el.appendChild(document.createTextNode(txt));
