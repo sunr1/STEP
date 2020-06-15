@@ -1,8 +1,8 @@
 
 /** Shows a popup window. */
 function showPopup(button) {
-  var modal = document.getElementById('my-popup');
-  var content = document.getElementById('popup-content');
+  const modal = document.getElementById('my-popup');
+  const content = document.getElementById('popup-content');
 
   removeLastChild(content);
 
@@ -12,14 +12,15 @@ function showPopup(button) {
       appendElement('h3', 'Sports and Fitness', content);
       appendElement(
           'p',
-          'I love doing yoga and hiking. I recently have started playing pickleball. Fun fact: I fenced competitively for 7 years',
+          'I love doing yoga, hiking, and have recently started playing pickleball. Fun fact: I fenced competitively for 7 years',
           content);
       break;
     case '2':
       document.getElementById('picture').src = 'images/nelson.jpg';
+      appendElement('h3', 'Art and Drawing', content);
       appendElement(
           'p',
-          'I really enjoy visiting art museums and drawing in my free time. Right now, I like realistic portrait style pencil portraits. One of my favorite museums is The Nelson-Atkins Museum of Art here in Kansas City.',
+          'I enjoy visiting art museums and drawing in my free time. Right now, I like drawing realistic portrait style pencil portraits. One of my favorite museums is The Nelson-Atkins Museum of Art here in Kansas City.',
           content);
       break;
 
@@ -35,37 +36,32 @@ function showPopup(button) {
       document.getElementById('picture').src = 'images/ski.jpg';
       appendElement('h3', 'Skiing', content);
       appendElement(
-          'p',
-          'This picture was taken in Keystone, Colorado where I skiied down black diamond slopes for the first time.',
-          content);
+          'p', 'This picture was taken in Keystone, Colorado.', content);
       break;
     case '5':
       appendElement('h3', 'Cooking and Baking', content);
       document.getElementById('picture').src = 'images/baking.jpg';
       appendElement(
           'p',
-          'This is one of my favorite recipes and a quarantine essential, chocolate chip banana bread!',
+          'This is one of my favorite recipes and one that I baked recently, chocolate chip banana bread!',
           content);
       break;
     case '6':
       appendElement('h3', 'Traveling', content);
       document.getElementById('picture').src = 'images/vegas.jpg';
-      appendElement('p', 'I took this picture while visiting Las Vegas.', content);
+      appendElement(
+          'p',
+          'I took this picture while visiting Las Vegas during the holidays.',
+          content);
       break;
   }
   modal.style.display = 'block';
 }
 
-/** Closes the popup window. */
-function closePopup() {
-  var modal = document.getElementById('my-popup');
-  modal.style.display = 'none';
-}
-
 /** Closes the window when the user clicks outside of the box. */
 window.onclick =
     function(event) {
-  var modal = document.getElementById('my-popup');
+  const modal = document.getElementById('my-popup');
   if (event.target == modal) {
     modal.style.display = 'none';
   }
@@ -126,11 +122,10 @@ function appendElement(type, txt, commentDiv) {
 }
 
 /**
-   Removes all child elements of a DOM node to prevent text from showing more
-   than once on UI.
+ *Removes all child elements of a DOM node to prevent text from showing more
+ * than once on UI.
  */
-function
-removeLastChild(div) {
+function removeLastChild(div) {
   while (div.lastChild) {
     div.removeChild(div.lastChild)
   }
