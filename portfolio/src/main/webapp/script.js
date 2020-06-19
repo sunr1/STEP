@@ -1,4 +1,3 @@
-
 /** Shows a popup window. */
 function showPopup(button) {
   const modal = document.getElementById('my-popup');
@@ -67,8 +66,16 @@ scrollUp() {
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-async function
-printComments() {
+/** Scrolls to the top of the page when the button is clicked. */
+function scrollUp() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+/**
+ *Fetches limit for number of comments shown on page and then adds the
+ * appropriate amount of comments to the UI.
+ */
+async function printComments() {
   let commentLimit = document.getElementById('comment-limit').value;
 
   fetch('/comments?comment-limit=' + commentLimit)
@@ -83,6 +90,10 @@ printComments() {
       .then(createMap());
 }
 
+/**
+ * Creates comment, user, delete button, and timestamp elements and adds them
+ * to the UI.
+ */
 function createCommentElement(comment) {
   const allComments = document.getElementById('allComments');
   const commentDiv = document.createElement('div');
@@ -103,11 +114,13 @@ function createCommentElement(comment) {
   allComments.appendChild(commentDiv);
 }
 
+/** Deletes comments by ID. */
 function deleteComments(comment) {
   const params = new URLSearchParams();
   params.append('id', comment.id);
   fetch('/delete-comment', {method: 'POST', body: params});
 }
+
 
 function appendElement(type, txt, divAppend) {
   const el = document.createElement(type);

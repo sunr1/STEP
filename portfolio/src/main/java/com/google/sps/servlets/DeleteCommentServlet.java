@@ -1,4 +1,3 @@
-
 package com.google.sps.servlets;
 
 import com.google.appengine.api.datastore.DatastoreService;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/** Servlet responsible for deleting comments. */
 @WebServlet("/delete-comment")
 public class DeleteCommentServlet extends HttpServlet {
   @Override

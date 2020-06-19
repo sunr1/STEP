@@ -37,8 +37,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/** Servlet responsible for creating comments. */
 @WebServlet("/comments")
-public class DataServlet extends HttpServlet {
+public class CommentServlet extends HttpServlet {
   private static final String NAME = "name";
   private static final String TEXT = "text";
   private static final String TIMESTAMP = "timestamp";
