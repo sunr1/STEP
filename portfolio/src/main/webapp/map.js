@@ -1,4 +1,6 @@
-
+/**
+ * Creates a map and applies styling and markers to it.
+ */
 function createMap() {
   const map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 39, lng: -94},
@@ -117,9 +119,9 @@ function createMap() {
   const nashString = '<h4>Nashville, Tennessee</h4>' +
       '<p>Where I am currently attending college</p>';
 
-  var kcInfoWindow = new google.maps.InfoWindow({content: kcString});
-  var culvInfoWindow = new google.maps.InfoWindow({content: culvString});
-  var nashInfoWindow = new google.maps.InfoWindow({content: nashString});
+  const kcInfoWindow = new google.maps.InfoWindow({content: kcString});
+  const culvInfoWindow = new google.maps.InfoWindow({content: culvString});
+  const nashInfoWindow = new google.maps.InfoWindow({content: nashString});
 
   setMarkerWindow(kcMarker, kcInfoWindow);
   setMarkerWindow(culvMarker, culvInfoWindow);
