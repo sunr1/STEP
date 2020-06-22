@@ -90,6 +90,13 @@ footer {
     display: flex;
     justify-content: space-around;
     transform: scale(1.2);
+
+}
+
+.hobbies-sep {
+    background-color: white;
+    border: none;
+    outline: none;
 }
 
 .hobbies-sep:hover {
@@ -112,14 +119,29 @@ footer {
 }
 
 #map {
-  border: thin solid black;
-  display: inline-block;
-  height: 500px;
-  width: 800px;
+    border: thin solid black;
+    display: inline-block;
+    height: 500px;
+    width: 800px;
+}
+ 
+.popup {
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    padding-top: 100px; /* Location of the box */
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    z-index: 1;
 }
 
-#chart {
-    border: thin solid black;
-    height: 100%;
-    width:100%;
+#popup-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }

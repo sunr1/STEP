@@ -105,6 +105,13 @@ function createMap() {
     title: 'Nashville, Tennessee'
   });
 
+  const vegasMarker = new google.maps.Marker({
+    position: {lat: 36.1699, lng: -115.1398},
+    map: map,
+    animation: google.maps.Animation.DROP,
+    title: 'Las Vegas, Nevada'
+  });
+
   const kcString = '<h4>Kansas City, Kansas</h4>' +
       '<p>My hometown</p>';
   const culvString = '<h4>Culver, Indiana</h4>' +
@@ -116,12 +123,12 @@ function createMap() {
   const culvInfoWindow = new google.maps.InfoWindow({content: culvString});
   const nashInfoWindow = new google.maps.InfoWindow({content: nashString});
 
-  setMarker(kcMarker, kcInfoWindow);
-  setMarker(culvMarker, culvInfoWindow);
-  setMarker(nashMarker, nashInfoWindow);
+  setMarkerWindow(kcMarker, kcInfoWindow);
+  setMarkerWindow(culvMarker, culvInfoWindow);
+  setMarkerWindow(nashMarker, nashInfoWindow);
 }
 
-function setMarker(marker, infoWindow) {
+function setMarkerWindow(marker, infoWindow) {
   marker.addListener('click', function() {
     infoWindow.open(map, marker);
   });

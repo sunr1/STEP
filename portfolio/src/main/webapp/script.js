@@ -1,3 +1,30 @@
+/** Shows a popup window. */
+function showPopup(id) {
+  const content = document.getElementById('popup-content');
+  const popup = popupById.get(id);
+
+  removeLastChild(content);
+
+  document.getElementById('popup-picture').src = popup.imagePath;
+  appendElement('h3', popup.headerText, content);
+  appendElement('p', popup.captionText, content);
+
+  const modal = document.getElementById('my-popup');
+  modal.style.display = 'block';
+}
+
+/** Closes the window when the user clicks outside of the box. */
+window.onclick = function(event) {
+  const modal = document.getElementById('my-popup');
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+function scrollUp() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
 /** Scrolls to the top of the page when the button is clicked. */
 function scrollUp() {
   window.scrollTo({top: 0, behavior: 'smooth'});
@@ -15,13 +42,11 @@ async function printComments() {
       .then((data) => {
         let allComments = document.getElementById('allComments');
 
-        while (allComments.lastChild) {
-          allComments.removeChild(allComments.lastChild)
-        }
+        removeLastChild(allComments);
 
         data.forEach(comment => createCommentElement(comment));
       })
-      .then(createMap);
+      .then(createMap());
 }
 
 /**
@@ -32,9 +57,9 @@ function createCommentElement(comment) {
   const allComments = document.getElementById('allComments');
   const commentDiv = document.createElement('div');
 
-  appendCommentElement(comment.name + ' left a comment:', commentDiv);
-  appendCommentElement(comment.text, commentDiv);
-  appendCommentElement('at ' + comment.timestamp, commentDiv);
+  appendElement('p', comment.name + ' left a comment:', commentDiv);
+  appendElement('p', comment.text, commentDiv);
+  appendElement('p', 'at ' + comment.timestamp, commentDiv);
 
   // delete button implementation
   const deleteButtonElement = document.createElement('button');
@@ -45,7 +70,6 @@ function createCommentElement(comment) {
     commentDiv.remove();
   });
   commentDiv.appendChild(deleteButtonElement);
-
   allComments.appendChild(commentDiv);
 }
 
@@ -56,9 +80,19 @@ function deleteComments(comment) {
   fetch('/delete-comment', {method: 'POST', body: params});
 }
 
-/** Creates paragraph element for a comment and adds it to the UI. */
-function appendCommentElement(txt, commentDiv) {
-  const el = document.createElement('p');
+
+function appendElement(type, txt, divAppend) {
+  const el = document.createElement(type);
   el.appendChild(document.createTextNode(txt));
-  commentDiv.appendChild(el);
+  divAppend.appendChild(el);
+}
+
+/**
+ * Removes all child elements of a DOM node to prevent text from showing more
+ * than once on UI.
+ */
+function removeLastChild(div) {
+  while (div.lastChild) {
+    div.removeChild(div.lastChild)
+  }
 }
