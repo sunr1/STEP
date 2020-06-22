@@ -275,7 +275,7 @@ public final class FindMeetingQueryTest {
 
   @Test
   public void optionalAttendeeHasAllDayEvent() {
-    // An optional attendee has an all-day event so return only available time slots that hte
+    // An optional attendee has an all-day event so return only available time slots that the
     // mandatory attendees can attend.
     //
     // Events  : |-----|--A--|--C--|--B--|-----|

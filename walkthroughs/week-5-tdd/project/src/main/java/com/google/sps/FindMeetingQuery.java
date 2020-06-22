@@ -14,6 +14,7 @@
 
 package com.google.sps;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,26 +24,29 @@ import java.util.function.Predicate;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    List<Event> eventsList = new LinkedList<>();
-    List<Event> eventsListOptional = new LinkedList<>();
+    ArrayList<Event> eventsListMandatory = new ArrayList<>();
+    ArrayList<Event> eventsListOptional = new ArrayList<>();
     for (Event event : events) {
-      // add event to list if event and request have attendees in common
+      // add event to list if event and request have attendees in common and account for mandatory attendees 
       if (!Collections.disjoint(event.getAttendees(), request.getAttendees())) {
-        eventsList.add(event);
+        eventsListMandatory.add(event);
         eventsListOptional.add(event);
         // account for optional attendees
       } else if (!Collections.disjoint(event.getAttendees(), request.getOptionalAttendees())) {
         eventsListOptional.add(event);
       }
     }
+    //get availability for optional attendees
     Collection<TimeRange> freeSlots = getFreeSlots(eventsListOptional);
-    Predicate<TimeRange> notEnoughTime = (TimeRange x) -> x.duration() < request.getDuration();
-    freeSlots.removeIf(notEnoughTime);
+
+    //remove TimeRange if there's not enough time between the last meeting and the end of day 
+    Predicate<TimeRange> notEnoughTimePredicate = (TimeRange tr) -> tr.duration() < request.getDuration();
+    freeSlots.removeIf(notEnoughTimePredicate);
 
     // check for mandatory attendees if no times for optional
     if (freeSlots.isEmpty() && !request.getAttendees().isEmpty()) {
-      freeSlots = getFreeSlots(eventsList);
-      freeSlots.removeIf(notEnoughTime);
+      freeSlots = getFreeSlots(eventsListMandatory);
+      freeSlots.removeIf(notEnoughTimePredicate);
     }
     return freeSlots;
   }
@@ -53,23 +57,30 @@ public final class FindMeetingQuery {
         return event1.getWhen().start() - event2.getWhen().start();
       }
     });
-    int start = TimeRange.START_OF_DAY;
+
+    //set start of events to be the start of day as default 
+    int startOfEvents = TimeRange.START_OF_DAY;
     int i = 0;
-    Collection<TimeRange> freeSlots = new LinkedList<>();
+    Collection<TimeRange> freeSlots = new ArrayList<>();
 
     // check for conflicting events
     while (i < eventsList.size()) {
-      int end = eventsList.get(i).getWhen().start();
-      freeSlots.add(TimeRange.fromStartEnd(start, end, false));
-      start = eventsList.get(i).getWhen().end();
+      int endOfEvents = eventsList.get(i).getWhen().start();
+      //prevent adding a time range of no time 
+      if (startOfEvents != endOfEvents) {
+        freeSlots.add(TimeRange.fromStartEnd(startOfEvents, endOfEvents, false));
+      }      
+      startOfEvents = eventsList.get(i).getWhen().end();
 
-      while (i < eventsList.size() - 1 && (eventsList.get(i + 1).getWhen().start() < start)) {
+      //continue to loop through events and break out before going out of bounds
+      while (i < eventsList.size() - 1 && (eventsList.get(i + 1).getWhen().start() < startOfEvents)) {
         i++;
-        start = Math.max(start, eventsList.get(i).getWhen().end());
+        //update start of events to be the later of either the start of events or the start of the next event  
+        startOfEvents = Math.max(startOfEvents, eventsList.get(i).getWhen().end());
       }
       i++;
     }
-    freeSlots.add(TimeRange.fromStartEnd(start, TimeRange.END_OF_DAY, true));
+    freeSlots.add(TimeRange.fromStartEnd(startOfEvents, TimeRange.END_OF_DAY, true));
     return freeSlots;
   }
 }
